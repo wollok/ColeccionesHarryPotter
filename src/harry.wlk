@@ -10,6 +10,10 @@ object harry {
 	method estaAsustado() = asustado
 	
 	method poder() = 100 - voldemort.poder()
+	
+	method lastimar(){
+		asustado = true
+	}
 }
 
 
@@ -25,7 +29,7 @@ object ron {
 }
 
 object her{
-	var hechizos = [3,4,5]	
+	const hechizos = [3,4,5]	
 	var cantidadHechizos = 0
 	
 	method lanzarHechizo(){
@@ -40,8 +44,11 @@ object her{
 	
 }
 
+
 object voldemort{
 	var orocrux = 7
+	
+	const enemigos = [harry]
 	
 	method lastimar(){
 		orocrux = orocrux - 1
@@ -52,6 +59,10 @@ object voldemort{
 		return orocrux.between(1,3)
 	}
 	method poder() = orocrux*10
+	
+	method atacar(){
+		enemigos.forEach{enemigo=>enemigo.lastimar()}
+	}
 }
 
 object howart{
@@ -105,7 +116,11 @@ object howart{
 	
 	method poder() = estudiantes.sum({est=>est.poder()})
 	
+	method cantidadAsustados() = estudiantes.count({est => est.estaAsustado()})
+	
 	method asustados() = estudiantes.filter({est => est.estaAsustado()})
+	
+	
 	
 	method masPoderoso() = estudiantes.max({est=>est.poder()})
 	
