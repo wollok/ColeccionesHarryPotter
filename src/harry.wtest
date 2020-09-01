@@ -1,0 +1,31 @@
+import harry.*
+
+
+describe "tests de howart" {
+
+test "howart con harry es famosa" {
+	howart.llegar(harry)
+	assert.that(howart.esFamosa())
+
+}
+
+test "vienen muchos estudiantes y es multitudinaria" {
+	
+	1000.times{i=> howart.llegar(ron)}
+	assert.that(howart.esMultitudinaria())
+
+}
+
+
+test "vienen ron y her y se va uno de ellos, queda el otro" {
+	
+	howart.llegar(ron)
+	howart.llegar(her)
+	howart.desterrar(her)
+	assert.equals(1,howart.cantidadEstudiantes())
+
+}
+
+
+
+}
