@@ -3,6 +3,14 @@ import harry.*
 
 describe "tests de howart" {
 
+
+
+method agregarEstudiantes() {
+	howart.llegar(ron)
+	howart.llegar(her)
+	howart.llegar(harry)
+	
+}
 test "howart con harry es famosa" {
 	howart.llegar(harry)
 	assert.that(howart.esFamosa())
@@ -26,6 +34,29 @@ test "vienen ron y her y se va uno de ellos, queda el otro" {
 
 }
 
+test "mucha magia varias veces, howart no esta en peligro" {
+	
+	self.agregarEstudiantes() 
+	howart.hacerMuchaMagia()
+	howart.hacerMuchaMagia()
+	howart.hacerMuchaMagia()
+	assert.notThat(howart.estaEnPeligro())
+}
 
+test "howart con estudiantes esta en peligro" {
+	self.agregarEstudiantes() 
+	assert.that(howart.estaEnPeligro())
+}
+
+test "el poder de howart"{
+	self.agregarEstudiantes() 
+	assert.equals( 30+0+12, howart.poder())		
+}
+
+only test "el poder de howart luego de hacer magia"{
+	self.agregarEstudiantes() 
+	howart.hacerMagia()
+	assert.equals( 40+0+12, howart.poder())		
+}
 
 }
